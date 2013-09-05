@@ -38,3 +38,7 @@ class String
     downcase
   end
 end
+
+class Read
+  f = File.new(@fname , mode = "r")
+end
