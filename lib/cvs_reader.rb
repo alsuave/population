@@ -39,6 +39,15 @@ class String
   end
 end
 
+# What is going on inside Read?
 class Read
   f = File.new(@fname , mode = "r")
+
+  self.headers = f.readline 
+
+  while (!f.eof? && next_line = f.readline)
+    value = next_line.split(",")
+    hash = create_hash(values)
+    yield(hash)
+  end
 end
