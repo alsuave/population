@@ -11,16 +11,15 @@ class CSVReader
 
     @headers.map! do |h|
       
-      h.chomp!('"') # h.gsub!('"', '') 
+      h.gsub!('"', '')
 
       h.strip!
 
-      h.underscore # to_sym?
+      h.underscore.to_sym?
     end
   end
 
   def create_hash(values)
-    #I don't understand this method
     h = {}
     @headers.each_with_index do |header, i|
       value = values[i].strip.gsub('"', '')
