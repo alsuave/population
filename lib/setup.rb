@@ -5,10 +5,11 @@ class Setup
   attr_accessor :areas
 
   def initialize
-    cvs = CVSReader.new("/free-zipcode-database.csv")
-
+    csv = CSVReader.new("./free-zipcode-database.csv")
+    
     @areas = []
-    cvs.read do |item|
+
+    csv.read do |item|
       @areas << Area.new(item)
     end
 
