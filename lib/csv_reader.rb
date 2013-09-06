@@ -39,7 +39,6 @@ class String
   end
 end
 
-# What is going on inside Read?
 class Read
   f = File.new(@fname , mode = "r")
 
