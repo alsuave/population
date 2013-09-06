@@ -10,6 +10,6 @@ class Area
 
   def to_s
     # Why does the answer not use instance variables?
-    "#{@city}, #{@state} #{@zip_code} has #{@estimated_population} people."
+    "#{city}, #{state} #{zip_code} has #{estimated_population} people."
   end
 end
