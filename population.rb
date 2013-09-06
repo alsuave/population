@@ -1,5 +1,6 @@
-require_relaive 'lib/setup'
-require_relaive 'lib/analytics'
+require_relative 'lib/setup'
+require_relative 'lib/analytics'
+
 
 class Population
   attr_accessor :analytics
@@ -11,22 +12,26 @@ class Population
 
   def menu
     system 'clear'
-    p "Population Menu"
-    p "---------------"
+    puts "Pupulation Menu"
+    puts "---------------"
     @analytics.options.each do |opt|
-      p "#{opt[:menu_id]}. #{opt[:menu_title]}"
+      puts "#{opt[:menu_id]}. #{opt[:menu_title]}"
     end
   end
 
   def run
     stop = false
+
     while stop != :exit do
+      # run the menu
       self.menu
+      # grab the choice
       print "Choice: "
       choice = gets.strip.to_i
-      stop = @analutics.run(choice)
+      # run their choice
+      stop = @analytics.run(choice)
       if stop == :exit
-        p "Exiting"
+        puts "Exiting"
       else
         print "\nHit enter to continue "
         gets
